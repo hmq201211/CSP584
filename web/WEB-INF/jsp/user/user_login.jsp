@@ -40,7 +40,7 @@
             </td>
             <td>
                 <select name="usertype">
-                    <option value="user">User</option>
+                    <option value="User">User</option>
                     <option value="Manager">Manager</option>
                 </select>
             </td>

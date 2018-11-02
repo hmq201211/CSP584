@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: HMQhm
   Date: 2018/11/1
-  Time: 13:26
+  Time: 19:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,17 +23,15 @@
             }
             return true;
         }
-
-        function backToLogin() {
-            window.location.assign("UserServlet?type=UserLogin");
-        }
     </script>
 </head>
 <body>
-<form action="UserServlet?type=UserAdd" method="post" onsubmit="return validate()">
-    <div> username: <input type="text" name="username" id="username"><span id="usernamecheck"></span></div>
+<form action="UserServlet?type=UserModify&oldName=${requestScope.User.username}" method="post" onsubmit="return validate()">
+    <div> username: <input type="text" name="username" id="username" value="${requestScope.User.username}"><span
+            id="usernamecheck"></span></div>
     <br>
-    <div> password: <input type="text" name="password" id="password"><span id="passwordcheck"></span></div>
+    <div> password: <input type="text" name="password" id="password" value="${requestScope.User.password}"><span
+            id="passwordcheck"></span></div>
     <br>
     <div><select name="usertype">
         <option value="User">User</option>
@@ -45,9 +43,21 @@
         <input type="reset" value="reset">
     </div>
 </form>
-<br>
-<div>
-    <button onclick="backToLogin()">return to login page</button>
-</div>
+<script type="text/javascript">
+
+    window.onload = function () {
+        var usertype = "${requestScope.User.usertype}";
+        if (usertype== ""){
+            window.location.assign("UserServlet?type=UserList");
+            return;
+        }
+        var tags = document.getElementsByTagName("option");
+        for (var i = 0; i < tags.length; i++) {
+            if (tags[i].value == usertype) {
+                tags[i].selected = "selected";
+            }
+        }
+    }
+</script>
 </body>
 </html>
