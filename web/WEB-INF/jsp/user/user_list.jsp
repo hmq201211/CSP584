@@ -89,6 +89,7 @@
         <br>
         <div><select name="usertype">
             <option value="User">User</option>
+            <option value="Member">Member</option>
             <option value="Manager">Manager</option>
         </select></div>
         <br>
