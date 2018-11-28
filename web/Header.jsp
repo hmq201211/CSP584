@@ -82,9 +82,9 @@
 <div id="header">
     <div id="menu">
         <ul>
-            <li><a href="GameList"><span class="glyphicon glyphicon-cloud">Games</span></a></li>
-            <li><a href="TeamList"><span class="glyphicon glyphicon-cloud">Teams</span></a></li>
-            <li><a href="PlayerList"><span class="glyphicon glyphicon-cloud">Players</span></a></li>
+            <li><a href="GameServlet?type=GameList"><span class="glyphicon glyphicon-cloud">Games</span></a></li>
+            <li><a href="TeamServlet?type=TeamList"><span class="glyphicon glyphicon-cloud">Teams</span></a></li>
+            <li><a href="PlayerServlet?type=PlayerList"><span class="glyphicon glyphicon-cloud">Players</span></a></li>
             <li><a href="Trending"><span class="glyphicon glyphicon-cloud">Trending</span></a></li>
         </ul>
     </div>

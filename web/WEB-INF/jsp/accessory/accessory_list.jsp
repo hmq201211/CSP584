@@ -22,19 +22,19 @@
             document.getElementById("namecheck").innerHTML = "<font color='red' size='-1'>name should not be empty<font>";
             return false;
         }
-        var league = document.getElementById("league").value;
-        if (league == "") {
-            document.getElementById("leaguecheck").innerHTML = "<font color='red' size='-1'>league should not be empty<font>";
+        var price = document.getElementById("price").value;
+        if (price == "") {
+            document.getElementById("pricecheck").innerHTML = "<font color='red' size='-1'>price should not be empty<font>";
             return false;
         }
-        var country = document.getElementById("country").value;
-        if (country == "") {
-            document.getElementById("countrycheck").innerHTML = "<font color='red' size='-1'>country should not be empty<font>";
+        var maker = document.getElementById("maker").value;
+        if (maker == "") {
+            document.getElementById("makercheck").innerHTML = "<font color='red' size='-1'>maker should not be empty<font>";
             return false;
         }
-        var address = document.getElementById("address").value;
-        if (address == "") {
-            document.getElementById("addresscheck").innerHTML = "<font color='red' size='-1'>address should not be empty<font>";
+        var discount = document.getElementById("discount").value;
+        if (discount == "") {
+            document.getElementById("addresscheck").innerHTML = "<font color='red' size='-1'>discount should not be empty<font>";
             return false;
         }
         return true;
@@ -52,42 +52,42 @@
 <jsp:include page="/LeftNavigationBar.jsp"></jsp:include>
 <div id='content'>
     <div class='post'><h2 class='title meta'>
-        <a style='font-size: 24px;'>Teams</a>
+        <a style='font-size: 24px;'>Accessories</a>
     </h2>
         <div class='entry'>
             <table id='bestseller'>
 
-                <c:forEach items="${list}" var="team" varStatus="userStatus">
+                <c:forEach items="${list}" var="accessory" varStatus="userStatus">
                     <c:if test="${userStatus.count%3==1}">
                         <tr></c:if>
                     <td>
-                        <div id='shop_item'><h3> ${team.name} </h3>
-                            <strong>${team.league}</strong>
+                        <div id='shop_item'><h3> ${accessory.name} </h3>
+                            <strong>${accessory.price}</strong>
                             <ul>
-                                <li id='item'><img src='images/team/${team.id}.JPG' alt=''/></li>
+                                <li id='item'><img src='images/accessories/${accessory.id}.JPG' alt=''/></li>
                                 <li>
                                     <form method='post' action='Follow'>
-                                        <input type='hidden' name='id' value='${team.id}'>
+                                        <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' class='btnbuy' value='Follow Now'></form>
                                 </li>
                                 <li>
                                     <form method='post' action='WriteReview'>
-                                        <input type='hidden' name='id' value='${team.id}'>
+                                        <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' value='WriteReview' class='btnreview'></form>
                                 </li>
                                 <li>
                                     <form method='post' action='ViewReview'>
-                                        <input type='hidden' name='id' value='${team.id}'>
+                                        <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' value='ViewReview' class='btnreview'></form>
                                 </li>
                                 <li align="middle">
-                                    <form method='post' action='TeamServlet?type=TeamUpdate'>
-                                        <input type='hidden' name='id' value='${team.id}'>
+                                    <form method='post' action='AccessoryServlet?type=AccessoryUpdate'>
+                                        <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' value='Modify' class='Member'></form>
                                 </li>
                                 <li align="middle">
-                                    <form method='post' action='TeamServlet?type=TeamDelete'>
-                                        <input type='hidden' name='id' value='${team.id}'>
+                                    <form method='post' action='AccessoryServlet?type=AccessoryDelete'>
+                                        <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' value='Delete' class='Member'></form>
                                 </li>
                             </ul>
@@ -101,7 +101,7 @@
             </table>
             <br>
             <div id="addone" style="display: none">
-                <form action="TeamServlet?type=TeamAddOne" method="post" onsubmit="return validate()">
+                <form action="AccessoryServlet?type=AccessoryAddOne" method="post" onsubmit="return validate()">
                     <div><h3>id:</h3> <input type="text" name="id" id="id"
                                              class='input'><span id="idcheck"></span>
                     </div>
@@ -110,16 +110,16 @@
                                                class='input'><span id="namecheck"></span>
                     </div>
                     <br>
-                    <div><h3>league:</h3> <input type="text" name="league" id="league"
-                                                 class='input'><span id="leaguecheck"></span>
+                    <div><h3>price:</h3> <input type="text" name="price" id="price"
+                                                 class='input'><span id="pricecheck"></span>
                     </div>
                     <br>
-                    <div><h3>country:</h3> <input type="text" name="country" id="country"
-                                                 class='input'><span id="countrycheck"></span>
+                    <div><h3>maker:</h3> <input type="text" name="maker" id="maker"
+                                                 class='input'><span id="makercheck"></span>
                     </div>
                     <br>
-                    <div><h3>address:</h3> <input type="text" name="address" id="address"
-                                                   class='input'><span id="addresscheck"></span>
+                    <div><h3>discount:</h3> <input type="text" name="discount" id="discount"
+                                                   class='input'><span id="discountcheck"></span>
                     </div>
                     <br>
                     <div>
@@ -130,7 +130,7 @@
             </div>
 
             <br>
-            <button onclick="addOne()" class='btnbuy' id="Member">Add One Team</button>
+            <button onclick="addOne()" class='btnbuy' id="Member">Add One Accessory</button>
             <script type="text/javascript">
 
                 window.onload = function () {

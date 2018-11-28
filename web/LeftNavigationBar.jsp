@@ -13,21 +13,21 @@
 		<li>
 			<h2>Team</h2>
 			<ul>
-				<li id=" first"><a href="TeamList">Team</a></li>
+				<li id=" first"><a href="TeamServlet?type=TeamList">Team</a></li>
 			</ul>
 		</li>
 		<li>
 			<h2>Player</h2>
 			<ul>
-				<li id="first"><a href="PlayerList">Player</a></li>
+				<li id="first"><a href="PlayerServlet?type=PlayerList">Player</a></li>
 			</ul>
 		</li>
 		<li>
 			<h2>Souvenir</h2>
 			<ul>
-				<li id="first"><a href="AccessoryList?maker=international&game=FIFA">FIFA</a></li>
-                <li><a href="AccessoryList?maker=europe&game=UEFA">UEFA</a></li>
-                <li><a href="AccessoryList?maker=asia&game=AFC">AFC</a></li>
+				<li id="first"><a href="AccessoryServlet?type=AccessoryList&&maker=FIFA">FIFA</a></li>
+                <li><a href="AccessoryServlet?type=AccessoryList&&maker=UEFA">UEFA</a></li>
+                <li><a href="AccessoryServlet?type=AccessoryList&&maker=AFC">AFC</a></li>
 			</ul>
 		</li>
 	</ul>
