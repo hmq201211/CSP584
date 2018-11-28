@@ -1,21 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HMQhm
-  Date: 2018/11/1
-  Time: 16:23
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="iit.csp584.soccerfan.bean.User" %>
-<html>
-<head>
-    <title>Welcome</title>
-</head>
-<body>
-<%--Welcome: <%--%>
-    <%--User user = ((User)session.getAttribute("User"));--%>
-    <%--out.print(user.getUsername());--%>
-<%--%>--%>
-Welcome: ${sessionScope.get("User").username}
-</body>
-</html>
+<jsp:include page="Header.jsp"></jsp:include>
+<div id='menu' style='float: right;'><ul><li><a href='ViewOrder'><span class='glyphicon'>View Order</span></a></li><li><a href='#'><span class='glyphicon'>Welcome: ${sessionScope.get("User").username}</span></a></li><li><a href='Cart'><span class='glyphicon'>Cart(0)</span></a></li></ul></div></div><div id='page'>
+<jsp:include page="LeftNavigationBar.jsp"></jsp:include>
+<jsp:include page="Content.jsp"></jsp:include>
+<jsp:include page="Footer.jsp"></jsp:include>
+
+
