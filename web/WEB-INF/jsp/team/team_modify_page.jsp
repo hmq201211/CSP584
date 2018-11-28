@@ -13,24 +13,19 @@
             document.getElementById("namecheck").innerHTML = "<font color='red' size='-1'>name should not be empty<font>";
             return false;
         }
-        var age = document.getElementById("age").value;
-        if (age == "") {
-            document.getElementById("agecheck").innerHTML = "<font color='red' size='-1'>age should not be empty<font>";
+        var league = document.getElementById("league").value;
+        if (league == "") {
+            document.getElementById("leaguecheck").innerHTML = "<font color='red' size='-1'>league should not be empty<font>";
             return false;
         }
-        var teamid = document.getElementById("teamid").value;
-        if (teamid == "") {
-            document.getElementById("teamidcheck").innerHTML = "<font color='red' size='-1'>teamid should not be empty<font>";
+        var country = document.getElementById("country").value;
+        if (country == "") {
+            document.getElementById("countrycheck").innerHTML = "<font color='red' size='-1'>country should not be empty<font>";
             return false;
         }
-        var number = document.getElementById("number").value;
-        if (number == "") {
-            document.getElementById("numbercheck").innerHTML = "<font color='red' size='-1'>number should not be empty<font>";
-            return false;
-        }
-        var position = document.getElementById("position").value;
-        if (position == "") {
-            document.getElementById("positioncheck").innerHTML = "<font color='red' size='-1'>position should not be empty<font>";
+        var address = document.getElementById("address").value;
+        if (address == "") {
+            document.getElementById("addresscheck").innerHTML = "<font color='red' size='-1'>address should not be empty<font>";
             return false;
         }
         return true;
@@ -40,30 +35,26 @@
 <div class='post' style='float: none; width: 100%'>
     <div class='entry'>
         <div style='width:400px; margin:25px; margin-left: auto;margin-right: auto;'>
-            <form action="PlayerServlet?type=PlayerModify&oldId=${requestScope.Player.id}" method="post"
+            <form action="TeamServlet?type=TeamModify&oldId=${requestScope.Team.id}" method="post"
                   onsubmit="return validate()">
                 <div><h3>id:</h3> <input type="text" name="id" id="id"
-                                         class='input' value="${requestScope.Player.id}"><span id="idcheck"></span>
+                                         class='input' value="${requestScope.Team.id}"><span id="idcheck"></span>
                 </div>
                 <br>
                 <div><h3>name:</h3> <input type="text" name="name" id="name"
-                                           class='input' value="${requestScope.Player.name}"><span id="namecheck"></span>
+                                           class='input' value="${requestScope.Team.name}"><span id="namecheck"></span>
                 </div>
                 <br>
-                <div><h3>age:</h3> <input type="text" name="age" id="age"
-                                          class='input' value="${requestScope.Player.age}"><span id="agecheck"></span>
+                <div><h3>league:</h3> <input type="text" name="league" id="league"
+                                             class='input' value="${requestScope.Team.league}"><span id="leaguecheck"></span>
                 </div>
                 <br>
-                <div><h3>teamid:</h3> <input type="text" name="teamid" id="teamid"
-                                             class='input' value="${requestScope.Player.teamid}"><span id="teamidcheck"></span>
+                <div><h3>country:</h3> <input type="text" name="country" id="country"
+                                              class='input' value="${requestScope.Team.country}"><span id="countrycheck"></span>
                 </div>
                 <br>
-                <div><h3>number:</h3> <input type="text" name="number" id="number"
-                                             class='input' value="${requestScope.Player.number}"><span id="numbercheck"></span>
-                </div>
-                <br>
-                <div><h3>position:</h3> <input type="text" name="position" id="position"
-                                               class='input' value="${requestScope.Player.position}"><span id="positioncheck"></span>
+                <div><h3>address:</h3> <input type="text" name="address" id="address"
+                                              class='input' value="${requestScope.Team.address}"><span id="addresscheck"></span>
                 </div>
                 <br>
                 <div>
@@ -74,9 +65,9 @@
             <script type="text/javascript">
 
                 window.onload = function () {
-                    var user = "${requestScope.Player}";
+                    var user = "${requestScope.Team}";
                     if (user == "") {
-                        window.location.assign("PlayerServlet?type=PlayerList");
+                        window.location.assign("TeamServlet?type=TeamList");
                         return;
                     }
                 }

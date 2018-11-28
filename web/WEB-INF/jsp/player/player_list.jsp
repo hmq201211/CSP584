@@ -69,30 +69,30 @@
                         <div id='shop_item'><h3> ${player.name} </h3>
                             <strong>${player.teamid}</strong>
                             <ul>
-                                <li id='item'><img src='images/player/${player.name}.JPG' alt=''/></li>
+                                <li id='item'><img src='images/player/${player.id}.JPG' alt=''/></li>
                                 <li>
                                     <form method='post' action='Follow'>
-                                        <input type='hidden' name='name' value='"+${player.name}+"'>
+                                        <input type='hidden' name='id' value='${player.id}'>
                                         <input type='submit' class='btnbuy' value='Follow Now'></form>
                                 </li>
                                 <li>
                                     <form method='post' action='WriteReview'>
-                                        <input type='hidden' name='name' value='" + ${player.name} + "'>
+                                        <input type='hidden' name='id' value='${player.id}'>
                                         <input type='submit' value='WriteReview' class='btnreview'></form>
                                 </li>
                                 <li>
                                     <form method='post' action='ViewReview'>
-                                        <input type='hidden' name='name' value='" + ${player.name} + "'>
+                                        <input type='hidden' name='id' value='${player.id}'>
                                         <input type='submit' value='ViewReview' class='btnreview'></form>
                                 </li>
                                 <li align="middle">
-                                    <form method='post' action='PlayerServlet?type=PlayerUpdate&id=${player.id}'>
-                                        <input type='hidden' name='id' value='" + ${player.id} + "'>
+                                    <form method='post' action='PlayerServlet?type=PlayerUpdate'>
+                                        <input type='hidden' name='id' value='${player.id}'>
                                         <input type='submit'  value='Modify' class='Member'  ></form>
                                 </li>
                                 <li align="middle">
-                                    <form method='post' action='PlayerServlet?type=PlayerDelete&id=${player.id}'>
-                                        <input type='hidden' name='id' value='" + ${player.id} + "'>
+                                    <form method='post' action='PlayerServlet?type=PlayerDelete'>
+                                        <input type='hidden' name='id' value='${player.id}'>
                                         <input type='submit' value='Delete' class='Member' ></form>
                                 </li>
                             </ul>
@@ -139,7 +139,7 @@
             </div>
 
             <br>
-            <button onclick="addOne()" class='btnbuy' id ="Member">Add One User</button>
+            <button onclick="addOne()" class='btnbuy' id ="Member">Add One Player</button>
             <script type="text/javascript">
 
                 window.onload = function () {
