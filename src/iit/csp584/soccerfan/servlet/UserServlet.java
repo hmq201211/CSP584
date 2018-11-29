@@ -16,7 +16,6 @@ import java.util.List;
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
     private UserServiceImpl userServiceImpl = new UserServiceImpl();
-    private Utilities utilities = new Utilities();
 
     /**
      * type = UserLogin -->userLogin
@@ -34,7 +33,7 @@ public class UserServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
 
         if (type.equals("UserLogin")) {
-            if (!utilities.isLoginIn(req))
+            if (!Utilities.isLoginIn(req))
                 requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_login.jsp");
             else {
                 User user = (User) req.getSession().getAttribute("User");
@@ -52,7 +51,7 @@ public class UserServlet extends HttpServlet {
             String password = req.getParameter("password");
             User found = userServiceImpl.checkLogin(username, password);
             if (found != null) {
-                utilities.login(req, found);
+                Utilities.login(req, found);
                 if (found.getUsertype().equals("User"))
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_success_login.jsp");
                 else if (found.getUsertype().equals("Manager"))

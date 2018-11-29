@@ -5,9 +5,9 @@
 		<li>
 			<h2>Game</h2>
 			<ul>
-				<li id="first"><a href="GameList?maker=international&game=FIFA">FIFA</a></li>
-				<li><a href="GameList?maker=europe&game=UEFA">UEFA</a></li>
-				<li><a href="GameList?maker=asia&game=AFC">AFC</a></li>
+				<li id="first"><a href="GameServlet?type=GameList&&league=FIFA">FIFA</a></li>
+				<li><a href="GameServlet?type=GameList&&league=UEFA">UEFA</a></li>
+				<li><a href="GameServlet?type=GameList&&league=AFC">AFC</a></li>
 			</ul>
 		</li>
 		<li>
