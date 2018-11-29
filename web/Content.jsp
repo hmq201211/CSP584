@@ -30,20 +30,20 @@
                                 <li>
                                     <form action='Follow' method='post'>
                                         <input type='submit' class="btnbuy" value='Follow'>
-                                        <input type='hidden' name='name' value='iPhone XS'>
-                                        <input type='hidden' name='type' value='Phones'>
-                                        <input type='hidden' name='maker' value='Apple'>
-                                        <input type='hidden' name='access' value=''>
+                                        <input type="hidden" name="id" value="Manchester">
                                     </form>
                                 </li>
 
                                 <li>
-                                    <form action='WriteReview' method='post'>
+                                    <form action='ReviewServlet?type=Write' method='post'>
                                         <input type='submit' class="btnreview" value='WriteReview'>
-                                        <input type='hidden' name='name' value='iPhone XS'>
-                                        <input type='hidden' name='type' value='Phones'>
-                                        <input type='hidden' name='maker' value='Apple'>
-                                        <input type='hidden' name='access' value=''>
+                                        <input type="hidden" name="id" value="Manchester">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action='ReviewServlet?type=View' method='post'>
+                                        <input type='submit' class="btnreview" value='ViewReview'>
+                                        <input type="hidden" name="id" value="Manchester">
                                     </form>
                                 </li>
                             </ul>
@@ -54,24 +54,25 @@
                             <h3>England</h3>
                             <strong>Liverpool</strong>
                             <ul>
-                                <li id="item"><img src="images/team/liverpool.JPG" alt="liverpool"/>
+                                <li id="item"><img src="images/team/Liverpool.JPG" alt="liverpool"/>
                                 </li>
                                 <li>
                                     <form action='Follow' method='post'>
                                         <input type='submit' class="btnbuy" value='Follow'>
-                                        <input type='hidden' name='name' value='Google-Home'>
-                                        <input type='hidden' name='type' value='Voice Assistant'>
-                                        <input type='hidden' name='maker' value='Google'>
-                                        <input type='hidden' name='access' value=''>
+                                        <input type="hidden" name="id" value="Liverpool">
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form action='ReviewServlet?type=Write' method='post'>
+                                        <input type='submit' class="btnreview" value='WriteReview'>
+                                        <input type="hidden" name="id" value="Liverpool">
                                     </form>
                                 </li>
                                 <li>
-                                    <form action='WriteReview' method='post'>
-                                        <input type='submit' class="btnreview" value='WriteReview'>
-                                        <input type='hidden' name='name' value='Google-Home'>
-                                        <input type='hidden' name='type' value='Voice Assistant'>
-                                        <input type='hidden' name='maker' value='Google'>
-                                        <input type='hidden' name='access' value=''>
+                                    <form action='ReviewServlet?type=View' method='post'>
+                                        <input type='submit' class="btnreview" value='ViewReview'>
+                                        <input type="hidden" name="id" value="Liverpool">
                                     </form>
                                 </li>
                             </ul>

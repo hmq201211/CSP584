@@ -71,12 +71,12 @@
                                         <input type='submit' class='btnbuy' value='Follow Now'></form>
                                 </li>
                                 <li>
-                                    <form method='post' action='WriteReview'>
+                                    <form method='post' action='ReviewServlet?type=Write'>
                                         <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' value='WriteReview' class='btnreview'></form>
                                 </li>
                                 <li>
-                                    <form method='post' action='ViewReview'>
+                                    <form method='post' action='ReviewServlet?type=View'>
                                         <input type='hidden' name='id' value='${accessory.id}'>
                                         <input type='submit' value='ViewReview' class='btnreview'></form>
                                 </li>
