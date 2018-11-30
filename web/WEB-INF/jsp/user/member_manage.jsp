@@ -2,9 +2,6 @@
 
 
 <jsp:include page="/Header.jsp"></jsp:include>
-
-
-
 </div><div id='page'>
 <jsp:include page="/LeftNavigationBar.jsp"></jsp:include>
 <div id='content'>
