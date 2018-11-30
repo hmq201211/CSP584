@@ -6,7 +6,7 @@
 <body>
 You Have No Right To View This Page.....Leading You To Welcome Page.....
 <%
-    response.setHeader("refresh","3;URL=welcome_page.jsp");
+    response.setHeader("refresh","1.2;URL=welcome_page.jsp");
 %>
 </body>
 </html>

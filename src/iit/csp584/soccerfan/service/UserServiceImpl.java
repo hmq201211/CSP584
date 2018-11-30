@@ -1,6 +1,7 @@
 package iit.csp584.soccerfan.service;
 
 import iit.csp584.soccerfan.bean.User;
+import iit.csp584.soccerfan.bean.UserInfo;
 import iit.csp584.soccerfan.dao.UserDaoImpl;
 
 import java.util.List;
@@ -32,5 +33,10 @@ public class UserServiceImpl implements UserService {
     public User checkLogin(String username, String password) {
         User user = userDaoImpl.checkLogin(username, password);
         return user;
+    }
+
+    @Override
+    public UserInfo getUserInfo(User user) {
+        return userDaoImpl.getUserInfo(user);
     }
 }

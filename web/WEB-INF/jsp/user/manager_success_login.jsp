@@ -7,7 +7,7 @@
 <body>
 Login Success.....Leading You To Manager Page.....
 <%
-    response.setHeader("refresh","3;URL=UserServlet?type=UserList");
+    response.setHeader("refresh","1.2;URL=UserServlet?type=UserList");
 %>
 </body>
 </html>

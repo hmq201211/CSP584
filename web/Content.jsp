@@ -26,11 +26,12 @@
                             <h3>England</h3>
                             <strong>Manchester</strong>
                             <ul>
-                                <li id="item"><img src="images/team/manchester.JPG" alt="Manchester"/></li>
+                                <li id="item"><img src="images/team/Manchester.JPG" alt="Manchester"/></li>
                                 <li>
-                                    <form action='Follow' method='post'>
+                                    <form action='FollowServlet?type=Follow' method='post'>
                                         <input type='submit' class="btnbuy" value='Follow'>
                                         <input type="hidden" name="id" value="Manchester">
+                                        <input type="hidden" name="itemtype" value="team">
                                     </form>
                                 </li>
 
@@ -38,12 +39,14 @@
                                     <form action='ReviewServlet?type=Write' method='post'>
                                         <input type='submit' class="btnreview" value='WriteReview'>
                                         <input type="hidden" name="id" value="Manchester">
+                                        <input type="hidden" name="itemtype" value="team">
                                     </form>
                                 </li>
                                 <li>
                                     <form action='ReviewServlet?type=View' method='post'>
                                         <input type='submit' class="btnreview" value='ViewReview'>
                                         <input type="hidden" name="id" value="Manchester">
+                                        <input type="hidden" name="itemtype" value="team">
                                     </form>
                                 </li>
                             </ul>
@@ -57,9 +60,10 @@
                                 <li id="item"><img src="images/team/Liverpool.JPG" alt="liverpool"/>
                                 </li>
                                 <li>
-                                    <form action='Follow' method='post'>
+                                    <form action='FollowServlet?type=Follow' method='post'>
                                         <input type='submit' class="btnbuy" value='Follow'>
                                         <input type="hidden" name="id" value="Liverpool">
+                                        <input type="hidden" name="itemtype" value="team">
                                     </form>
                                 </li>
 
@@ -67,12 +71,14 @@
                                     <form action='ReviewServlet?type=Write' method='post'>
                                         <input type='submit' class="btnreview" value='WriteReview'>
                                         <input type="hidden" name="id" value="Liverpool">
+                                        <input type="hidden" name="itemtype" value="team">
                                     </form>
                                 </li>
                                 <li>
                                     <form action='ReviewServlet?type=View' method='post'>
                                         <input type='submit' class="btnreview" value='ViewReview'>
                                         <input type="hidden" name="id" value="Liverpool">
+                                        <input type="hidden" name="itemtype" value="team">
                                     </form>
                                 </li>
                             </ul>

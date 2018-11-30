@@ -6,7 +6,7 @@
 <body>
 Delete Success.....Leading You To Member Page.....
 <%
-    response.setHeader("refresh","3;URL=TeamServlet?type=TeamList");
+    response.setHeader("refresh","1.2;URL=TeamServlet?type=TeamList");
 %>
 </body>
 </html>

@@ -6,13 +6,7 @@
         window.location.assign("UserServlet?type=UserRegister")
     }
 </script>
-<div id='menu' style='float: right;'>
-    <ul>
-        <li><a href='ViewOrder'><span class='glyphicon'>View Order</span></a></li>
-        <li><a href='#'><span class='glyphicon'>Login</span></a></li>
-        <li><a href='Cart'><span class='glyphicon'>Cart(0)</span></a></li>
-    </ul>
-</div>
+
 
 </div><div id='page'>
 <div class='post' style='float: none; width: 100%'>

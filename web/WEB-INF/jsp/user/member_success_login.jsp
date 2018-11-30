@@ -6,7 +6,7 @@
 <body>
 Login Success.....Leading You To Member Page.....
 <%
-    response.setHeader("refresh","3;URL=GameServlet?type=GameList");
+    response.setHeader("refresh","1.2;URL=WebContentManageServlet?type=View");
 %>
 </body>
 </html>

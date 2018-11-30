@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,10 +48,10 @@
 <div id="logo">
     <table style="float: left">
         <tr>
-            <td style="valign: top;"><a href="#"><img src="images/site/logo.jpg" alt="logo"
+            <td style="valign: top;"><a href="welcome_page.jsp"><img src="images/site/logo.jpg" alt="logo"
                                                       style="height: 80px"></a></td>
             <td><h1>
-                <a href="#">Soccer Fan</a>
+                <a href="welcome_page.jsp">Soccer Fan</a>
             </h1></td>
         </tr>
         <tr>
@@ -89,4 +90,12 @@
         </ul>
     </div>
     <!-- end #menu -->
-
+    <div id='menu' style='float: right;'>
+        <ul>
+            <li><a href='OrderServlet?type=ViewOrder'><span class='glyphicon glyphicon-credit-card'>Orders</span></a></li>
+            <c:if test="${!empty sessionScope.get('User').username}"><li><a href='#'><span class='glyphicon glyphicon-user'>Welcome:${sessionScope.get('User').username}</span></a></li></c:if>
+            <c:if test="${empty sessionScope.get('User').username}"><li><a href='UserServlet?type=UserLogin'><span class='glyphicon glyphicon-user'>Login</span></a></li></c:if>
+            <li><a href='OrderServlet?type=Cart'><span class='glyphicon glyphicon-shopping-cart'>Cart(${sessionScope.get("UserInfo").cart})</span></a></li>
+            <li><a href='FollowServlet?type=List'><span class='glyphicon glyphicon-heart'>Follow(${sessionScope.get("UserInfo").follow})</span></a></li>
+        </ul>
+    </div>

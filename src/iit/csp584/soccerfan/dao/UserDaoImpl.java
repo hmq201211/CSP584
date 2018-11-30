@@ -1,7 +1,9 @@
 package iit.csp584.soccerfan.dao;
 
 import iit.csp584.soccerfan.bean.User;
+import iit.csp584.soccerfan.bean.UserInfo;
 import iit.csp584.soccerfan.utility.GetMySQLConnenction;
+import org.apache.jasper.tagplugins.jstl.core.If;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,7 +46,6 @@ public class UserDaoImpl implements UserDao {
         }
 
     }
-
 
 
     @Override
@@ -108,5 +109,28 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return user;
+    }
+
+    @Override
+    public UserInfo getUserInfo(User user) {
+        UserInfo userInfo = null;
+        int followCount = 0;
+        try {
+            connection = GetMySQLConnenction.getConnection();
+            preparedStatement = connection.prepareStatement("select * from follow where username = ?");
+            preparedStatement.setString(1, user.getUsername());
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                followCount++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        GetMySQLConnenction.getClose(connection, preparedStatement, resultSet);
+        userInfo = new UserInfo(user.getUsername(), 0, followCount);
+        return userInfo;
     }
 }

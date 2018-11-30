@@ -1,6 +1,7 @@
 package iit.csp584.soccerfan.servlet;
 
 import iit.csp584.soccerfan.bean.User;
+import iit.csp584.soccerfan.bean.UserInfo;
 import iit.csp584.soccerfan.service.UserServiceImpl;
 import iit.csp584.soccerfan.utility.Utilities;
 
@@ -51,7 +52,8 @@ public class UserServlet extends HttpServlet {
             String password = req.getParameter("password");
             User found = userServiceImpl.checkLogin(username, password);
             if (found != null) {
-                Utilities.login(req, found);
+                UserInfo userInfo =userServiceImpl.getUserInfo(found);
+                Utilities.login(req, found,userInfo);
                 if (found.getUsertype().equals("User"))
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_success_login.jsp");
                 else if (found.getUsertype().equals("Manager"))
@@ -83,9 +85,14 @@ public class UserServlet extends HttpServlet {
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_list.jsp");
                 } else if (type.equals("UserDelete")) {
                     String username = req.getParameter("username");
-                    userServiceImpl.delete(username);
-                    req.setAttribute("username", username);
-                    requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_delete_success.jsp");
+                    if (((User) req.getSession().getAttribute("User")).getUsername().equals(username)) {
+                        req.setAttribute("username", username);
+                        requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_delete_fail.jsp");
+                    } else {
+                        userServiceImpl.delete(username);
+                        req.setAttribute("username", username);
+                        requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_delete_success.jsp");
+                    }
                 } else if (type.equals("UserModify")) {
                     String oldName = req.getParameter("oldName");
                     User oldUser = userServiceImpl.getById(oldName);
@@ -118,8 +125,7 @@ public class UserServlet extends HttpServlet {
                         User newUser = new User(username, password, usertype);
                         userServiceImpl.add(newUser);
                         requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_success_update.jsp");
-                    }
-                    else {
+                    } else {
                         requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/user/user_fail_update.jsp");
                     }
                 }

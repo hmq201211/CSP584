@@ -5,7 +5,7 @@
     <title>Login Fail</title>
 </head>
 <body>
-Login Fail.....Please Try Again.....
+Please login First and Try Again.....
 <%
     response.setHeader("refresh","1.2;URL=UserServlet?type=UserLogin");
 %>

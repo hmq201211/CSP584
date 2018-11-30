@@ -3,6 +3,10 @@
 <jsp:include page="/Header.jsp"></jsp:include>
 <script type="text/javascript">
     function validate() {
+        var tags = document.getElementsByTagName("span");
+        for(var i =0 ;i<tags.length;i++){
+            tags[i].innerText = "";
+        }
         var id = document.getElementById("id").value;
         if (id == "") {
             document.getElementById("idcheck").innerHTML = "<font color='red' size='-1'>id should not be empty<font>";
@@ -65,8 +69,8 @@
             <script type="text/javascript">
 
                 window.onload = function () {
-                    var user = "${requestScope.Accessory}";
-                    if (user == "") {
+                    var accessory = "${requestScope.Accessory}";
+                    if (accessory == "") {
                         window.location.assign("AccessoryServlet?type=AccessoryList");
                         return;
                     }

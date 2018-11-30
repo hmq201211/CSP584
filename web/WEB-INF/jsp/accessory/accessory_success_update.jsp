@@ -6,7 +6,7 @@
 <body>
 Update Success.....Leading You To Member Page.....
 <%
-    response.setHeader("refresh","3;URL=AccessoryServlet?type=AccessoryList");
+    response.setHeader("refresh","1.2;URL=AccessoryServlet?type=AccessoryList");
 %>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <body>
 Register Fail.....Please Try Again.....
 <%
-    response.setHeader("refresh","3;URL=UserServlet?type=UserRegister");
+    response.setHeader("refresh","1.2;URL=UserServlet?type=UserRegister");
 %>
 
 </body>
