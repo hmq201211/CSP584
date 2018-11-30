@@ -33,9 +33,13 @@ public class ReviewServlet extends HttpServlet {
         } else if (type.equals("View")) {
             String id = req.getParameter("id");
             String itemtype = req.getParameter("itemtype");
-            List<Review> reviews = MongoDatabaseUtility.selectReviewByIdAndType(id, itemtype);
-            req.setAttribute("list", reviews);
-            requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/review/review_view.jsp");
+            if (id != null && itemtype != null) {
+                List<Review> reviews = MongoDatabaseUtility.selectReviewByIdAndType(id, itemtype);
+                req.setAttribute("list", reviews);
+                requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/review/review_view.jsp");
+            } else{
+                requestDispatcher = req.getRequestDispatcher("welcome_page.jsp");
+            }
         } else if (type.equals("Submit")) {
             String id = req.getParameter("id");
             String itemtype = req.getParameter("itemtype");

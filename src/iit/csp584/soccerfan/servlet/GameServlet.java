@@ -1,10 +1,8 @@
 package iit.csp584.soccerfan.servlet;
 
-import iit.csp584.soccerfan.bean.Accessory;
 import iit.csp584.soccerfan.bean.Game;
 import iit.csp584.soccerfan.bean.User;
 import iit.csp584.soccerfan.service.GameServiceImpl;
-import iit.csp584.soccerfan.utility.Utilities;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet("/GameServlet")

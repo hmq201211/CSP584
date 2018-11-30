@@ -69,7 +69,7 @@
                             <ul>
                                 <li id='item'><img src='images/player/${player.id}.JPG' alt=''/></li>
                                 <li>
-                                    <form method='post' action='Follow'>
+                                    <form action='FollowServlet?type=Follow' method='post'>
                                         <input type='hidden' name='id' value='${player.id}'>
                                         <input type="hidden" name="itemtype" value="player">
                                         <input type='submit' class='btnbuy' value='Follow Now'></form>
