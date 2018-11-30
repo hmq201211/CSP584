@@ -1,13 +1,9 @@
 package iit.csp584.soccerfan.bean;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
-
 public class Game {
-    private  int id;
+    private String id;
     private String league;
-    private String  time;
+    private String time;
     private String home_team;
     private String score;
     private String guest_team;
@@ -16,7 +12,7 @@ public class Game {
     public Game() {
     }
 
-    public Game(int id, String league, String time, String home_team, String score, String guest_team, String address) {
+    public Game(String id, String league, String time, String home_team, String score, String guest_team, String address) {
         this.id = id;
         this.league = league;
         this.time = time;
@@ -26,11 +22,11 @@ public class Game {
         this.address = address;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

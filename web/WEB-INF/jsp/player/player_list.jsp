@@ -12,6 +12,10 @@
     }
 
     function validate() {
+        var tags = document.getElementsByTagName("span");
+        for(var i =0 ;i<tags.length;i++){
+            tags[i].innerText = "";
+        }
         var id = document.getElementById("id").value;
         if (id == "") {
             document.getElementById("idcheck").innerHTML = "<font color='red' size='-1'>id should not be empty<font>";
@@ -45,13 +49,7 @@
         return true;
     }
 </script>
-<div id='menu' style='float: right;'>
-    <ul>
-        <li><a href='ViewOrder'><span class='glyphicon'>View Order</span></a></li>
-        <li><a href='#'><span class='glyphicon'>Welcome: ${sessionScope.get("User").username}</span></a></li>
-        <li><a href='Cart'><span class='glyphicon'>Cart(0)</span></a></li>
-    </ul>
-</div>
+
 
 </div><div id='page'>
 <jsp:include page="/LeftNavigationBar.jsp"></jsp:include>
@@ -73,16 +71,19 @@
                                 <li>
                                     <form method='post' action='Follow'>
                                         <input type='hidden' name='id' value='${player.id}'>
+                                        <input type="hidden" name="itemtype" value="player">
                                         <input type='submit' class='btnbuy' value='Follow Now'></form>
                                 </li>
                                 <li>
                                     <form method='post' action='ReviewServlet?type=Write'>
                                         <input type='hidden' name='id' value='${player.id}'>
+                                        <input type="hidden" name="itemtype" value="player">
                                         <input type='submit' value='WriteReview' class='btnreview'></form>
                                 </li>
                                 <li>
                                     <form method='post' action='ReviewServlet?type=View'>
                                         <input type='hidden' name='id' value='${player.id}'>
+                                        <input type="hidden" name="itemtype" value="player">
                                         <input type='submit' value='ViewReview' class='btnreview'></form>
                                 </li>
                                 <li align="middle">

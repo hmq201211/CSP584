@@ -3,6 +3,10 @@
 <jsp:include page="/Header.jsp"></jsp:include>
 <script type="text/javascript">
     function validate() {
+        var tags = document.getElementsByTagName("span");
+        for(var i =0 ;i<tags.length;i++){
+            tags[i].innerText = "";
+        }
         var username = document.getElementById("username").value;
         if (username == "") {
             document.getElementById("usernamecheck").innerHTML = "<font color='red' size='-1'>username should not be empty<font>";

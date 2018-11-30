@@ -20,6 +20,7 @@ import java.util.List;
 @WebServlet("/GameServlet")
 public class GameServlet extends HttpServlet {
     private GameServiceImpl gsi = new GameServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String type = req.getParameter("type");
@@ -39,25 +40,25 @@ public class GameServlet extends HttpServlet {
         } else {
             if (((User) req.getSession().getAttribute("User")).getUsertype().equals("Member")) {
                 if (type.equals("GameDelete")) {
-                    Integer id = Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     gsi.delete(id);
                     req.setAttribute("id", id);
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/game/game_delete_success.jsp");
                 } else if (type.equals("GameModify")) {
-                    int oldId = Integer.parseInt(req.getParameter("oldId"));
+                    String oldId = req.getParameter("oldId");
                     Game oldGame = gsi.getById(oldId);
                     gsi.delete(oldId);
-                    int id = Integer.parseInt( req.getParameter("id"));
+                    String id = req.getParameter("id");
                     String league = req.getParameter("league");
                     String time = req.getParameter("time");
                     String home_team = req.getParameter("home_team");
-                    String  score = req.getParameter("score");
-                    String guest_team =req.getParameter("guest_team");
-                    String  address = req.getParameter("address");
+                    String score = req.getParameter("score");
+                    String guest_team = req.getParameter("guest_team");
+                    String address = req.getParameter("address");
                     Game found = gsi.getById(id);
                     System.out.println(found);
                     if (found == null) {
-                        Game game = new Game(id, league, time, home_team, score,guest_team,address);
+                        Game game = new Game(id, league, time, home_team, score, guest_team, address);
                         gsi.add(game);
                         requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/game/game_success_update.jsp");
                     } else {
@@ -65,22 +66,22 @@ public class GameServlet extends HttpServlet {
                         requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/game/game_fail_update.jsp");
                     }
                 } else if (type.equals("GameUpdate")) {
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     Game game = gsi.getById(id);
                     req.setAttribute("Game", game);
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/game/game_modify_page.jsp");
 
                 } else if (type.equals("GameAddOne")) {
-                     int id =  Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     Game game = gsi.getById(id);
                     if (game == null) {
                         String league = req.getParameter("league");
                         String time = req.getParameter("time");
                         String home_team = req.getParameter("home_team");
-                        String  score = req.getParameter("score");
-                        String guest_team =req.getParameter("guest_team");
-                        String  address = req.getParameter("address");
-                        game = new Game(id, league, time, home_team, score,guest_team,address);
+                        String score = req.getParameter("score");
+                        String guest_team = req.getParameter("guest_team");
+                        String address = req.getParameter("address");
+                        game = new Game(id, league, time, home_team, score, guest_team, address);
                         gsi.add(game);
                         requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/game/game_success_update.jsp");
                     } else {

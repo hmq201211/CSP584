@@ -14,8 +14,8 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public void delete(Integer integer) {
-        gdi.delete(integer);
+    public void delete(String s) {
+        gdi.delete(s);
     }
 
     @Override
@@ -24,8 +24,8 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public Game getById(Integer integer) {
-        return gdi.getById(integer);
+    public Game getById(String s) {
+        return gdi.getById(s);
     }
 
     public List<Game> getByLeague(String  s) {

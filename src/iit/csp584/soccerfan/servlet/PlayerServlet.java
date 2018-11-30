@@ -29,17 +29,17 @@ public class PlayerServlet extends HttpServlet {
         } else {
             if (((User) req.getSession().getAttribute("User")).getUsertype().equals("Member")) {
                 if (type.equals("PlayerDelete")) {
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     psi.delete(id);
                     req.setAttribute("id", id);
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/player/player_delete_success.jsp");
                 } else if (type.equals("PlayerModify")) {
-                    int oldId = Integer.parseInt(req.getParameter("oldId"));
+                    String oldId = req.getParameter("oldId");
                     Player oldPlayer = psi.getById(oldId);
                     psi.delete(oldId);
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     String name = req.getParameter("name");
-                    int age = Integer.parseInt(req.getParameter("age"));
+                    String age = req.getParameter("age");
                     String teamid = req.getParameter("teamid");
                     String number = req.getParameter("number");
                     String position = req.getParameter("position");
@@ -54,17 +54,17 @@ public class PlayerServlet extends HttpServlet {
                         requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/player/player_fail_update.jsp");
                     }
                 } else if (type.equals("PlayerUpdate")) {
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     Player player = psi.getById(id);
                     req.setAttribute("Player", player);
                     requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/player/player_modify_page.jsp");
 
                 } else if (type.equals("PlayerAddOne")) {
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    String id = req.getParameter("id");
                     Player player = psi.getById(id);
                     if (player == null) {
                         String name = req.getParameter("name");
-                        int age = Integer.parseInt(req.getParameter("age"));
+                        String age = req.getParameter("age");
                         String teamid = req.getParameter("teamid");
                         String number = req.getParameter("number");
                         String position = req.getParameter("position");

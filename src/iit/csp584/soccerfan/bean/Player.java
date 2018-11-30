@@ -1,9 +1,9 @@
 package iit.csp584.soccerfan.bean;
 
 public class Player {
-    private int id;
+    private String id;
     private String name;
-    private int age;
+    private String age;
     private String teamid;
     private String number;
     private String position;
@@ -11,7 +11,7 @@ public class Player {
     public Player() {
     }
 
-    public Player(int id, String name, int age, String teamid, String number, String position) {
+    public Player(String id, String name, String age, String teamid, String number, String position) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -20,11 +20,11 @@ public class Player {
         this.position = position;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,11 +36,11 @@ public class Player {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

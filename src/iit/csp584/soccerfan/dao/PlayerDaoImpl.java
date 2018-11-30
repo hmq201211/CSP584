@@ -18,9 +18,9 @@ public class PlayerDaoImpl implements PlayerDao {
         try {
             connection = GetMySQLConnenction.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO player values(?,?,?,?,?,?) ");
-            preparedStatement.setInt(1, player.getId());
+            preparedStatement.setString(1, player.getId());
             preparedStatement.setString(2, player.getName());
-            preparedStatement.setInt(3, player.getAge());
+            preparedStatement.setString(3, player.getAge());
             preparedStatement.setString(4,player.getTeamid());
             preparedStatement.setString(5,player.getNumber());
             preparedStatement.setString(6,player.getPosition());
@@ -33,11 +33,11 @@ public class PlayerDaoImpl implements PlayerDao {
     }
 
     @Override
-    public void delete(Integer integer) {
+    public void delete(String s) {
         try {
             connection = GetMySQLConnenction.getConnection();
             preparedStatement = connection.prepareStatement("delete from player where id = ? ");
-            preparedStatement.setInt(1, integer);
+            preparedStatement.setString(1,s );
             preparedStatement.execute();
             GetMySQLConnenction.getClose(connection, preparedStatement, resultSet);
         } catch (Exception e) {
@@ -54,9 +54,9 @@ public class PlayerDaoImpl implements PlayerDao {
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
+                String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
-                int age = resultSet.getInt("age");
+                String age = resultSet.getString("age");
                 String teamid = resultSet.getString("teamid");
                 String number = resultSet.getString("number");
                 String position = resultSet.getString("position");
@@ -71,17 +71,17 @@ public class PlayerDaoImpl implements PlayerDao {
     }
 
     @Override
-    public Player getById(Integer integer) {
+    public Player getById(String s) {
         Player player = null;
         try {
             connection = GetMySQLConnenction.getConnection();
             preparedStatement = connection.prepareStatement("select * from player where id = ? ");
-            preparedStatement.setInt(1, integer);
+            preparedStatement.setString(1, s);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
+                String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
-                int age = resultSet.getInt("age");
+                String age = resultSet.getString("age");
                 String teamid = resultSet.getString("teamid");
                 String number = resultSet.getString("number");
                 String position = resultSet.getString("position");

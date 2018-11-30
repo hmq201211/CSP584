@@ -14,8 +14,8 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void delete(Integer integer) {
-        pdi.delete(integer);
+    public void delete(String s) {
+        pdi.delete(s);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public Player getById(Integer integer) {
-        return pdi.getById(integer);
+    public Player getById(String s) {
+        return pdi.getById(s);
     }
 }
