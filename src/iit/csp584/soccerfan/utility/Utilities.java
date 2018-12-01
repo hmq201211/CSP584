@@ -7,6 +7,7 @@ import iit.csp584.soccerfan.bean.UserInfo;
 import iit.csp584.soccerfan.service.AccessoryServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import java.nio.file.attribute.AclEntryFlag;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -75,6 +76,31 @@ public class Utilities {
 
     }
 
+    public static String getFollowRank(String itemtype) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        StringBuffer sb = new StringBuffer();
+        connection = GetMySQLConnenction.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("SELECT itemid, COUNT(itemid) FROM `follow` WHERE itemtype = ? GROUP BY itemid ORDER BY COUNT(itemid) desc LIMIT 3;");
+            preparedStatement.setString(1, itemtype);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                sb.append(resultSet.getString("itemid"));
+                sb.append("-");
+                sb.append(resultSet.getString("count(itemid)"));
+                sb.append(";");
+            }
+            GetMySQLConnenction.getClose(connection, preparedStatement, resultSet);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+
+    }
+
     public static List<String> getFollows() {
         ArrayList<String> list = new ArrayList<>();
         Connection connection = null;
@@ -103,6 +129,7 @@ public class Utilities {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        boolean flag = true;
         connection = GetMySQLConnenction.getConnection();
         try {
             preparedStatement = connection.prepareStatement("delete from follow where username = ? and itemid =?  and itemtype =?");
@@ -112,7 +139,10 @@ public class Utilities {
             preparedStatement.execute();
             GetMySQLConnenction.getClose(connection, preparedStatement, resultSet);
         } catch (Exception e) {
-            e.printStackTrace();
+            flag = false;
+        }
+        if (flag) {
+            userInfo.setFollow(userInfo.getFollow() - 1);
         }
     }
 
@@ -136,7 +166,7 @@ public class Utilities {
         sb.append(accessory.getPrice());
         usercart.add(sb.toString());
         userInfo.setCart(userInfo.getCart() + 1);
-        System.out.println("addcart"+usercart);
+        System.out.println("addcart" + usercart);
     }
 
     public static void removeCart(String id) {
@@ -149,7 +179,7 @@ public class Utilities {
         sb.append(accessory.getPrice());
         usercart.remove(sb.toString());
         userInfo.setCart(userInfo.getCart() - 1);
-        System.out.println("removecart"+usercart);
+        System.out.println("removecart" + usercart);
     }
 
     public static void placeCart(String creditNumber, String address) {

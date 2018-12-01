@@ -34,6 +34,16 @@ public class FollowServlet extends HttpServlet {
                 List<String> follows = Utilities.getFollows();
                 req.setAttribute("list", follows);
                 requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/follow/follow_list.jsp");
+            } else if (type.equals("Rank")) {
+                String players = Utilities.getFollowRank("player");
+                String teams = Utilities.getFollowRank("team");
+                String games = Utilities.getFollowRank("game");
+                String accessories = Utilities.getFollowRank("accessory");
+                req.setAttribute("players", players);
+                req.setAttribute("teams", teams);
+                req.setAttribute("games", games);
+                req.setAttribute("accessories", accessories);
+                requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/follow/follow_rank.jsp");
             } else if (type.equals("Delete")) {
                 String id = req.getParameter("id");
                 String itemtype = req.getParameter("itemtype");
