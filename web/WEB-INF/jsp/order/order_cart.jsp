@@ -7,7 +7,7 @@
 <script type="text/javascript">
     function validate() {
         var tags = document.getElementsByTagName("span");
-        for(var i =0 ;i<tags.length;i++){
+        for (var i = 0; i < tags.length; i++) {
             tags[i].innerText = "";
         }
         var creditnumber = document.getElementById("creditnumber").value;
@@ -71,16 +71,16 @@
                         <form action="OrderServlet?type=Place" method="post"
                               onsubmit="return validate()">
                             <div><h3>Credit Card Number:</h3> <input type="text" name="creditNumber" id="creditnumber"
-                                                     class='input' ><span id="creditnumbercheck"></span>
+                                                                     class='input'><span id="creditnumbercheck"></span>
                             </div>
                             <br>
                             <div><h3>Address:</h3> <input type="text" name="address" id="address"
-                                                       class='input'><span id="addresscheck"></span>
+                                                          class='input'><span id="addresscheck"></span>
                             </div>
                             <br>
                             <div>
                                 <input type="submit" value="submit" class="btnbuy">
-                                <input type="reset" value="reset"  class="btnbuy">
+                                <input type="reset" value="reset" class="btnbuy">
                             </div>
                         </form>
                     </td>
