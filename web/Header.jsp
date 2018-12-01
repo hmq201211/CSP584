@@ -43,7 +43,7 @@
 
 </head>
 <body style='margin: 0px !important; padding: 0 !important;	background: #00cc00 !important;	font-family: Georgia, "Times New Roman", Times, serif;	font-size: 12px !important;	'>
-<script type="text/javascript" src="autocomplete.js"></script>
+<script type="text/javascript" src="js/autocomplete.js"></script>
 <!-- Start #logo top content of the webpage-->
 <div id="logo">
     <table style="float: left">
